@@ -4,3 +4,4 @@
 - Java Pro course from Otus  
 - Список, описывающий в какой папке лежит та или иная выполненная работа:
     - hw01-gradle
+    - hw02-generics
