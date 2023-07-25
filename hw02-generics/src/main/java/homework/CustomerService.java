@@ -19,13 +19,10 @@ public class CustomerService {
     }
 
     public Map.Entry<Customer, String> getNext(Customer customer) {
-        if (customerDataMap.isEmpty()) {
-            return null;
-        }
-
-        if (customerDataMap.entrySet()
-                .stream()
-                .noneMatch(entry -> entry.getKey().getScores() > customer.getScores())) {
+        if (customerDataMap.isEmpty() ||
+                customerDataMap.entrySet()
+                        .stream()
+                        .noneMatch(entry -> entry.getKey().getScores() > customer.getScores())) {
             return null;
         }
 
