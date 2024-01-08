@@ -13,7 +13,7 @@ plugins {
 
 idea {
     project {
-        languageLevel = IdeaLanguageLevel(17)
+        languageLevel = IdeaLanguageLevel(21)
     }
     module {
         isDownloadJavadoc = true
@@ -33,7 +33,6 @@ allprojects {
     val testcontainersBom: String by project
     val protobufBom: String by project
     val guava: String by project
-
 
     apply(plugin = "io.spring.dependency-management")
     dependencyManagement {
@@ -71,8 +70,8 @@ allprojects {
 subprojects {
     plugins.apply(JavaPlugin::class.java)
     extensions.configure<JavaPluginExtension> {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     tasks.withType<JavaCompile> {
@@ -84,7 +83,7 @@ subprojects {
     apply<com.diffplug.gradle.spotless.SpotlessPlugin>()
     configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         java {
-            googleJavaFormat("1.16.0").aosp()
+            googleJavaFormat("1.17.0").aosp()
         }
     }
 
